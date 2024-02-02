@@ -13,7 +13,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
 }
 
@@ -27,7 +27,7 @@ body {
 
 .cards {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   flex-wrap: wrap;
   max-width: 1500px;
@@ -64,9 +64,9 @@ body {
   font-size: 1.5rem;
 }
 
-.description {
+/* .description {
   text-align: justify;
-}
+} */
 
 .readMore {
   color: #12b0e8;

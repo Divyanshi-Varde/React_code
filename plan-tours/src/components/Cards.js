@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Cards({ id, name, info, price, image, removeTour }) {
   const [readMore, setReadMore] = useState(false);
-  const description = readMore ? info : `${info.substring(0, 180)}...`;
+  const description = readMore ? info : `${info.substring(0, 200)}...`;
   function readMoreHandler() {
     setReadMore(!readMore);
   }
@@ -27,7 +27,7 @@ function Cards({ id, name, info, price, image, removeTour }) {
         Not Interested
       </button>
     </div>
-  )
+  );
 }
 
 export default Cards;
