@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: #344151;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  color: #0398d4;
+  font-size: x-large;
+  display: block;
+}
+
+.Bg-Box {
+  height: 50px;
+  width: 180px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.Decrement {
+  border: none;
+  text-align: center;
+  width: 60px;
+  font-size: 35px;
+}
+
+.Increment {
+  border: none;
+  text-align: center;
+  width: 60px;
+  font-size: 35px;
+}
+
+.variableCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  width: 60px;
+  font-size: 35px;
+}
+
+.Reset {
+  width: 80px;
+  height: 30px;
+  background-color: #0398d4;
+  color: white;
+  border: none;
+  margin-top: 1rem;
+}
