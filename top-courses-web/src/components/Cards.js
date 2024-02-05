@@ -1,25 +1,33 @@
 import React from "react";
 import Card from "./Card";
-
-const Cards = ({ courses }) => {
-  let allCourses = [];
-
-  //returns you an array of all courses recieved from the api response
-
-  const getCourses = () => {
-    Object.values(courses).forEach((courseCategory) => {
-      courseCategory.forEach((course) => {
-        allCourses.puch(course);
+const Cards = (props) => {
+  let courses = props.courses;
+  // console.log("printing data");
+  // console.log(courses);
+  function getCourses() {
+    let allCourses = [];
+    Object.values(courses).forEach((array) => {
+      array.forEach((courseData) => {
+        allCourses.push(courseData);
       });
     });
     return allCourses;
-  };
+  }
   return (
-    <div>
+    <div className="cards">
       {getCourses().map((course) => {
-        return <Card />;
+        return <Card key={course.id} course={course} />;
       })}
     </div>
   );
 };
 export default Cards;
+// {!courses ? (
+//   <div>
+//       <p>No Data Found</p>
+//   </div>
+// ): (
+//   getCourses().map((course) => {
+//   return <Card key = {course.id} course = {course}/>
+// })
+// )}
