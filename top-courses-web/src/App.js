@@ -9,6 +9,7 @@ import Spinner from "./components/Spinner";
 const App = () => {
   const [courses, setCourses] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [category,setCategory]=useState(filterData[0].title)
 
   const fetchData = async () => {
     setLoading(true);
@@ -26,16 +27,16 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <div>
         <Navbar />
       </div>
-      <div className="body">
+      <div>
       <div >
-        <Filter filterData={filterData} />
+        <Filter filterData={filterData}  category={category} setCategory={setCategory}/>
       </div>
 
-      <div>{loading ? <Spinner /> : <Cards courses={courses} />}</div>
+      <div>{loading ? <Spinner /> : <Cards courses={courses} category={category} />}</div>
       </div>
     </div>
   );
