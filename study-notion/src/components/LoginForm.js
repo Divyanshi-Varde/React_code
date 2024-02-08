@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import toast from "react-hot-toast";
 
+
 const LoginForm = ({ setIsLoggedIn }) => {
   const [FormData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
@@ -24,10 +25,11 @@ const LoginForm = ({ setIsLoggedIn }) => {
   return (
     <form onSubmit={submitHandler}>
       <label>
-        <p>
-          Email Address<sup>*</sup>
+        <p className="email-text">
+          Email Address<sup className="required-icon">*</sup>
         </p>
         <input
+          className="text-field"
           required
           onChange={changeHandler}
           placeholder="Enter email address"
@@ -38,10 +40,11 @@ const LoginForm = ({ setIsLoggedIn }) => {
         ></input>
       </label>
       <label>
-        <p>
-          Password<sup>*</sup>
+        <p className="password-text">
+          Password<sup className="required-icon">*</sup>
         </p>
         <input
+          className="text-field"
           required
           onChange={changeHandler}
           placeholder="Enter password"
@@ -51,6 +54,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
           value={FormData.password}
         ></input>
         <span
+          className="show-icon"
           onClick={() => {
             setShowPassword((prev) => !prev);
           }}
@@ -58,12 +62,12 @@ const LoginForm = ({ setIsLoggedIn }) => {
           {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
         </span>
 
-        <Link to="#">
+        <Link className="forgot-pass-text" to="#">
           <p>Forgot Password</p>
         </Link>
       </label>
 
-      <button>Sign In</button>
+      <button className="sign-in-button">Sign In</button>
     </form>
   );
 };

@@ -14,6 +14,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
     confirmPassword: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [accountType,setAccountType]=useState("student")
 
   function changeHandler(event) {
     setFormData((prevData) => ({
@@ -39,8 +40,21 @@ const SignupForm = ({ setIsLoggedIn }) => {
     <div>
       {/* student-instructor tab */}
       <div>
-        <button>Student</button>
-        <button>Instructor</button>
+        <button
+        className="student-button"
+          onClick={() => {
+            setAccountType("student");
+          }}
+        >
+          Student
+        </button>
+        <button className="instructor-button"
+          onClick={() => {
+            setAccountType("instructor");
+          }}
+        >
+          Instructor
+        </button>
       </div>
 
       <form onSubmit={submitHandler}>

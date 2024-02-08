@@ -2,6 +2,7 @@ import React from "react";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import frameImage from "../assets/frame.png";
+import { FcGoogle } from "react-icons/fc";
 
 const Template = ({ title, desc1, desc2, image, formtype, setIsLoggedIn }) => {
   return (
@@ -19,22 +20,29 @@ const Template = ({ title, desc1, desc2, image, formtype, setIsLoggedIn }) => {
           <LoginForm setIsLoggedIn={setIsLoggedIn} />
         )}
         <div className="template-hr">
-          <div></div>
+          <div className="template-line"></div>
           <p>OR</p>
-          <div></div>
+          <div className="template-line"></div>
         </div>
-        <button>Sign in with Google</button>
+        <button className="google-button">
+          <p className="google-button-icon">
+            <FcGoogle></FcGoogle>
+          </p>
+          <p className="google-button-text">Sign in with Google</p>
+        </button>
       </div>
 
-      <div>
+      <div className="template-image">
         <img
+          className="template-img1"
           src={frameImage}
           alt="Pattern"
           width={420}
-          height={400}
+          height={390}
           loading="lazy"
         ></img>
         <img
+          className="template-img2"
           src={image}
           alt="Students"
           width={420}
