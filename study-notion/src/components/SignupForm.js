@@ -14,7 +14,8 @@ const SignupForm = ({ setIsLoggedIn }) => {
     confirmPassword: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-  const [accountType,setAccountType]=useState("student")
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [accountType, setAccountType] = useState("student");
 
   function changeHandler(event) {
     setFormData((prevData) => ({
@@ -32,8 +33,13 @@ const SignupForm = ({ setIsLoggedIn }) => {
     setIsLoggedIn(true);
     toast.success("Account created!");
     const accountData = { ...formData };
-    console.log("Printing acoount data.....");
-    console.log(formData);
+
+    const finalData = {
+      ...accountData,
+      accountType,
+    };
+    console.log("Printing final acoount data.....");
+    console.log(finalData);
     navigate("/dashboard");
   }
   return (
@@ -41,14 +47,15 @@ const SignupForm = ({ setIsLoggedIn }) => {
       {/* student-instructor tab */}
       <div>
         <button
-        className="student-button"
+          className="student-button"
           onClick={() => {
             setAccountType("student");
           }}
         >
           Student
         </button>
-        <button className="instructor-button"
+        <button
+          className="instructor-button"
           onClick={() => {
             setAccountType("instructor");
           }}
@@ -130,16 +137,16 @@ const SignupForm = ({ setIsLoggedIn }) => {
             required
             onChange={changeHandler}
             placeholder="Confirm password"
-            type={showPassword ? "text" : "password"}
+            type={showConfirmPassword ? "text" : "password"}
             name="confirmPassword"
             value={formData.confirmPassword}
           ></input>
           <span
             onClick={() => {
-              setShowPassword((prev) => !prev);
+              setShowConfirmPassword((prev) => !prev);
             }}
           >
-            {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            {showConfirmPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
           </span>
         </label>
 
