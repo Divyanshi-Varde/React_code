@@ -4,7 +4,7 @@ import { baseUrl } from "../baseUrl";
 
 export const AppContext = createContext();
 
- export default function AppContextProvider({ children }) {
+export default function AppContextProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
@@ -23,6 +23,7 @@ export const AppContext = createContext();
       setTotalPages(data.totalPages);
     } catch (error) {
       console.log("Error in fetching data...");
+      console.log(error);
       setPage(1);
       setPosts([]);
       setTotalPages(null);
@@ -30,13 +31,14 @@ export const AppContext = createContext();
     setLoading(false);
   }
 
-  function handlePageChange() {
+  function handlePageChange(page) {
     setPage(page);
     fetchBlogPosts(page);
   }
 
   const value = {
     posts,
+  
     setPosts,
     loading,
     setLoading,
