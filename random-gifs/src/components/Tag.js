@@ -5,10 +5,10 @@ import useGif from "../hooks/useGif";
 
 const Tag = () => {
   const [tag, setTag] = useState("");
-  const { gif, loading, fetchData } = useGif(tag);
+  const { gif, loading, getData } = useGif(tag);
 
   function clickHandler() {
-    fetchData(tag);
+    getData(tag);
   }
 
   function changeHandler(event) {

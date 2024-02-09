@@ -2,12 +2,12 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ isLoggedIn, children }) => {
-    // const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   if (isLoggedIn) {
     return children;
   } else {
-    return <Navigate to="/login"></Navigate>;
+    return <Navigate to="/login" />;
     // return navigate("/login")
   }
 };

@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import toast from "react-hot-toast";
 
-
 const LoginForm = ({ setIsLoggedIn }) => {
   const [FormData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
@@ -37,7 +36,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
           id="email"
           name="email"
           value={FormData.email}
-        ></input>
+        />
       </label>
       <label>
         <p className="password-text">
