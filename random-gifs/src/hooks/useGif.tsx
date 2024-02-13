@@ -1,10 +1,26 @@
 import { useState, useEffect } from "react";
 // import axios from "axios";
 
-const API_KEY = process.env.REACT_APP_GIPHY_API_KEY;
-const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
+const API_KEY: string | undefined = process.env.REACT_APP_GIPHY_API_KEY;
+const url: string = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
 
-const useGif = (tag) => {
+interface GifData {
+  data: {
+    images: {
+      downsized_large: {
+        url: string;
+      };
+    };
+  };
+}
+
+const useGif = (
+  tag: string
+): {
+  gif: string;
+  loading: boolean;
+  getData: (tag: string) => Promise<void>;
+} => {
   const [gif, setGif] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -16,7 +32,7 @@ const useGif = (tag) => {
   //   setGif(imageSource);
   //   setLoading(false);
   // }
-  async function getData(tag) {
+  async function getData(tag: string): Promise<void> {
     setLoading(true);
     try {
       const response = await fetch(tag ? `${url}&tag=${tag}` : url);
@@ -24,9 +40,9 @@ const useGif = (tag) => {
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
-      const result = await response.json();
+      const result: GifData = await response.json();
       console.log(result);
-      const imageSource = result.data.images.downsized_large.url;
+      const imageSource: string = result.data.images.downsized_large.url;
       setGif(imageSource);
       setLoading(false);
     } catch (error) {
@@ -36,7 +52,7 @@ const useGif = (tag) => {
   }
 
   useEffect(() => {
-    getData();
+    getData("");
   }, []);
 
   return { gif, loading, getData };

@@ -2,11 +2,11 @@ import React from "react";
 import Spinner from "./Spinner";
 import useGif from "../hooks/useGif";
 
-const Random = (props) => {
-  const { gif, loading, fetchData } = useGif();
+const Random = () => {
+  const { gif, loading, getData } = useGif("");
 
   function clickHandler() {
-    fetchData();
+    getData("");
   }
 
   return (
@@ -21,7 +21,7 @@ const Random = (props) => {
           width={300}
           height={200}
           alt="image1"
-        ></img>
+        ></img> 
       )}
 
       <button className="random-button" onClick={clickHandler}>

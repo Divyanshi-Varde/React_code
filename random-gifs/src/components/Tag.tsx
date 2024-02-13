@@ -10,10 +10,9 @@ const Tag = () => {
   function clickHandler() {
     getData(tag);
   }
-
-  function changeHandler(event) {
+  const changeHandler: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     setTag(event.target.value);
-  }
+  };
 
   return (
     <div className="tag-container">
@@ -44,5 +43,4 @@ const Tag = () => {
     </div>
   );
 };
-
 export default Tag;
