@@ -12,13 +12,13 @@ const Counter = () => {
     <div className="App">
       <div className="text">Increment && Decrement</div>
       <div className="Bg-Box">
-        <button className=" Increment" onClick={() => dispatch(increment())}>
-          +
-        </button>
-        <div className="variableCount">{count}</div>
-
         <button className="Decrement" onClick={() => dispatch(decrement())}>
           -
+        </button>
+
+        <div className="variableCount">{count}</div>
+        <button className=" Increment" onClick={() => dispatch(increment())}>
+          +
         </button>
       </div>
 
