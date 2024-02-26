@@ -6,6 +6,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Testimonials = (props) => {
   let reviews = props.reviews;
+  
   let [index, setIndex] = useState(0);
   function leftShiftHandler() {
     if (index - 1 === 0) {

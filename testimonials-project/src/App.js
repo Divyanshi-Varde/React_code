@@ -7,6 +7,7 @@ const App=()=> {
     <div className="container">
       <div className="app">
         <h1 className="heading">Our Testimonials</h1>
+        
         <div className="hr"></div>
         <Testimonials reviews={reviews}/>
       </div>

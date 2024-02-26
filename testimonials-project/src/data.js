@@ -2,6 +2,7 @@ const reviews = [
   {
     id: 1,
     name: "Pranay Gupta",
+  
     job: "Software Engineer",
     image:
       "https://aeccc.targettechnology.in/static/media/PranayGupta.f3c530b7630ba8efb2ab.jpg",
